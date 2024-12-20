@@ -83,6 +83,20 @@ def create():
 randomWord() 
 create()
 
+def checkFile():
+    a = []
+    b = []
+    with open("MetaWords", 'r') as file:
+        a = [line.strip() for line in file]
+    with open("TrustWords", 'r') as file:
+        b = [line.strip() for line in file]
+
+    for i in range (0, len(a)):
+        if(i < len(a) and i < len(b)):
+            if( a[i] == b[i]):
+                print(f"{i}, {a[i]}")
+# checkFile()
+
 def getWords():
     keyWords = []
     file_ = input("input file name to gen Words for Meta:  ")
