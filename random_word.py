@@ -80,8 +80,8 @@ def create():
     with open("output_words.txt", 'w') as file:
         file.writelines(word + '\n' for word in words_without_keyWords)
 
-randomWord() 
-create()
+# randomWord() 
+# create()
 
 def checkFile():
     a = []
@@ -152,18 +152,15 @@ def getPassWords():
     sum_ascii = 0
 
     for i in keyPass:
-        sum_ascii += ord(i)  
+        sum_ascii = (sum_ascii + 2)* ord(i) 
 
     key = ""
     count = 0
     for i in keyPass:
-        genKey = ord(i) + sum_ascii
+        genKey = (sum_ascii + count)* ord(i) 
         # print(genKey)
         while(genKey >= len(keyCharacter[count])):
-            t = str(genKey)
-            genKey = 0
-            for t1 in t:
-                genKey += int(t1)
+            genKey = int(genKey/3)
         key += keyCharacter[count][genKey]
         count += 1
         if(count >= len(keyCharacter)):
